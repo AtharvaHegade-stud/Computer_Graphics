@@ -19,6 +19,17 @@ void bresenhamLine(int xa, int ya, int xb, int yb, int lineType)
     int sy = (ya < yb) ? 1 : -1;
 
     int err = dx - dy;
+    
+    
+    int m_new = 2 * (yb - ya);
+    int slope_error_new = m_new - (xb - xa); 
+	for (int x = xa, y = ya; x <= xb; x++) { 
+		cout << "(" << x << "," << y << ")\n"; 
+		if (slope_error_new >= 0) { 
+			y++; 
+			slope_error_new -= 2 * (xb - xa); 
+		} 
+	}
 
     while (true)
     {
